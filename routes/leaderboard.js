@@ -12,7 +12,6 @@ router.get('/' , async (req,res)=>{
     if(req.session.user){
         let users = await User.find().sort({rate:-1 }).populate('field');
         if(users){
-        users = await users.json()
         res.render('leaderboard' , {user:req.session.user , users:users})
         }
         else{

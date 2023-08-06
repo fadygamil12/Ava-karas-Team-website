@@ -11,7 +11,6 @@ router = express.Router()
 router.get('/' , async (req,res)=>{
     if(req.session.user.isAdmin){
         let users = await User.find({field: req.params.id}).populate('field').select('-passwordhash');
-        users = await users.json()
         res.render('usersfield' , {user:req.session.user , users:users})
     }
     else{
