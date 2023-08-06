@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    include ../public/links.pug
+  body
+    section.sub-header
+      include  ../public/nav.pug
+    .account-sec
+      .accounts
+        if message
+          h4.alert #{message}
+        form.login(method='POST', action='/user/login')
+          input(name='email', type='text', placeholder='اسم المستخدم', required='')
+          input(name='pass', type='password', placeholder='كلمة السر', required='')
+          button.btn2(type='sumbit')  تسجيل الدخول 
+        a(href='/forget_password') نسيت كلمة السر؟
+        a(href='/user/signup') ليس لديك حساب؟
+
+        
+        
+
+    // ----js add--
+    script(src='../script.js')

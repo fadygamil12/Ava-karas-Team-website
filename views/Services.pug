@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    include ../public/links.pug
+  body
+    section.sub-header
+      include ../public/nav.pug
+      .bodytext
+        h1 الخدمات 
+    section.facilities
+      h1 خدمات الفريق
+      p بَلْ بِٱلْمَحَبَّةِ ٱخْدِمُوا بَعْضُكُمْ بَعْضًا. (غَلَاطِيَّةَ ٥:‏١٣)
+      .row
+        .fac-row
+          img(src='../images/carnaval.jfif')
+          .fac-text
+            a(href="/")
+              h3 زيارة دار ايتام
+            h2 لجنة التنظيم
+            p
+              | تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*
+        .fac-row
+          img(src='../images/tanzem.jfif')
+          .fac-text
+            h3 تنظيم صلاة العيد
+            h2 لجنة التنظيم
+            p
+              | تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*
+        .fac-row
+          img(src='../images/shahdwassal.jpg')
+          .fac-text
+            h3 حملة شهد وعسل
+            h2 لجنة اعلام
+            p
+              | تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*تفاصيل اليوم والخدمة*
+    include ../public/footer.pug
+    // ----js add--
+    script(src='../script.js')

@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    include ../public/links.pug
+  body
+    section.profile
+      include ../public/nav.pug
+      div.profile_main
+        div.profile_secf
+          if pruser.photo
+            img(src= `${pruser.photo}`)
+          else
+            img(src=`/images/noPhoto.jpg`)
+          h2 #{pruser.name}
+          h3 لجنة #{pruser.field.name}
+          h3 التقييم: #{pruser.rate}
+          if(pruser.isAdmin)
+            a.btn2(href='/field_admin') خدام اللجنة
+        div.profile_secs
+          div
+            .profile_sec_main 
+              h3 المعلومات الشخصية
+              a(href=`/profile/edit/${pruser._id}`)
+                i.fas.fa-edit
+            div
+              h2 الاسم
+              span #{pruser.name}
+            div
+              h2 السن
+              span #{pruser.age}
+            div
+              h2 رقم الموبايل
+              span #{pruser.phonenum}
+            div
+              h2 العنوان
+              span #{pruser.address} 
+          div
+            .profile_sec_main 
+              h3 الخدمات
+            if  serves.length>0
+              for val in  serves
+                div
+                  h2 #{val.name}
+                  span #{val.Date.toJSON().slice(0,10).split('-').reverse().join('/')}
+            else
+              div
+                h2 لا يوجد خدمات
+      a .
+    include ../public/footer.pug   
+    // ----js add--
+    script(src='/script.js')

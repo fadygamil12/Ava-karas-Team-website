@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    include ../public/links.pug
+  body
+    section.sub-header
+      include  ../public/nav.pug
+    .account-sec
+      .accounts
+        if message
+          h4.alert #{message}
+        form.signup(method='POST', action=`/profile/edit/${pruser._id}` , enctype="multipart/form-data")
+          div
+            label :الاسم
+            input(name='name', type='text', value=`${pruser.name}`, required='')
+            label :الصورة الشخصية
+            input(name='photo', type='file', placeholder="غير صورتك")
+            label :اسم المستخدم
+            input(name='email', type='text', value=`${pruser.email}`, required='')
+            label :رقم الموبايل
+            input(name='phonenum', type='number', value=`${pruser.phonenum}`)
+            label :السن
+            input(name='age', type='number', value=`${pruser.age}`)
+            label :العنوان
+            input(name='address', type='text', value=`${pruser.address}`)
+            button.btn2(type='sumbit')  تعديل البيانات
+
+        
+        
+
+    // ----js add--
+    script(src='../script.js')

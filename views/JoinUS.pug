@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    include ../public/links.pug
+  body
+    section.sub-header
+      include ../public/nav.pug
+      .bodytext
+        h1 اشترك معانا 
+    section.contactus
+      .account-sec
+        .contact-col2
+          form(action='#')
+            input(type='text', placeholder='اسمك ايه', required='')
+            input(type='text', placeholder='الايميل بتاعك', required='')
+            input(type='number', placeholder='عندك كام سنة', required='')
+            input(type='number', placeholder='رقم موبايلك', required='')
+            input(list="fields" , placeholder="اختار انسب لجنة ليك")
+            datalist(id='fields')
+              option(value="لجنة التنظيم")
+              option(value="لجنة إعلام")
+              option(value="لجنة الصيانة")
+              option(value="لجنة المساعدة")
+              option(value="لجنة التعليم")
+            button.btn2(onclick='message()') اشترك
+    include ../public/footer.pug
+    // ----js add--
+    script(src='../script.js')

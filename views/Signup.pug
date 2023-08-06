@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    include ../public/links.pug
+  body
+    section.sub-header
+      include  ../public/nav.pug
+
+    .account-sec
+      .accounts
+        if message
+          h4.alert #{message}
+        form.signup(method='POST', action='/user/signup',enctype="multipart/form-data")
+          div
+            label صورة شخصية
+            input(name='photo', type='file', placeholder='الاسم')
+            br
+            input(name='name', type='text', placeholder='الاسم', required='')
+            input(name='email', type='text', placeholder='اسم المستخدم', required='')
+            input(name='pwd', type='password', placeholder='كلمة السر', required='')
+            input(name='pwd2', type='password', placeholder='كلمة السر مرة اخرى', required='')
+            input(name='phonenum', type='number', placeholder='رقم الموبايل')
+            input(name='age', type='number', placeholder='السن')
+            input(name='address', type='text', placeholder='العنوان')
+            input(list="fields", name="field" , placeholder="اختار انسب لجنة ليك")
+            datalist(id='fields')
+              option(value="التنظيم")
+              option(value="التعليم")
+              option(value="الصيانة")
+              option(value="الإعلام")
+              option(value="المساعدة")
+            button.btn2(type='sumbit')  تسجيل
+
+        
+        
+
+    // ----js add--
+    script(src='../script.js')

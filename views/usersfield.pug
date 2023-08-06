@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    include ../public/links.pug
+  body
+    section.profile
+      include ../public/nav.pug
+      div.profile_main
+            table#people
+                tr
+                    th الاسم   
+                    th التقييم   
+                    th السن   
+                    th رقم الموبايل
+                for val in users
+                    tr
+                        td
+                            a(href=`/profile/preview/${val._id}`) #{val.name}  
+                        td #{val.rate}  
+                        td #{val.age}  
+                        td #{val.phonenum}  
+
+        
+    include ../public/footer.pug   
+    // ----js add--
+    script(src='/script.js')

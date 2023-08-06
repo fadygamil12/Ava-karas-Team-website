@@ -1,0 +1,38 @@
+nav
+        a(href='index.html')
+          img(src='/images/logo.png')
+        #navlinks.navlinks
+          ul
+            i.fas.fa-times(onclick='closemenu()')
+            li
+              a(href='/') الرئيسية
+            li
+              a(href='/aboutus') احنا مين؟
+            li
+              a(href='/services') الخدمات
+            li
+              a(href='/joinus') شاركنا
+            li
+              if user
+                a(href='/signin') #{user.name}
+              else 
+               a(href='/signin') حسابي
+            if user
+              li
+                a(href='/user/logout' style='color:orange; font-size:1.2rem') تسجيل الخروج
+        i.fas.fa-bars(onclick='showmenu()')
+if(user)
+  nav.navmobile
+            ul
+              li
+                a(href='/')
+                  i.fas.fa-home
+              li
+                a(href='/leaderboard')
+                  i.fas.fa-trophy            
+              li
+                a(href='/signin')
+                  i.fas.fa-user-circle
+              li
+                a(href='/signin')
+                  i.fas.fa-list
