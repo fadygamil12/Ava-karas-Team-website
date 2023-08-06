@@ -11,7 +11,7 @@ const fetch = require("node-fetch");
 router = express.Router()
 router.get('/' , async (req,res)=>{
     if(req.session.user){
-        let users = await fetch(window.location.hostname +`/api-v1/users/leaderboard`);
+        let users = await User.find().sort({rate:-1 }).populate('field');
         if(users){
         users = await users.json()
         res.render('leaderboard' , {user:req.session.user , users:users})
