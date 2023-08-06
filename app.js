@@ -53,7 +53,7 @@ console.log(__dirname +'/public')
 app.use(express.static(__dirname +'/public'));
 app.use(express.static('public'));
 app.use(session({
-    secret: 'fadygamilhana'
+    secret: process.env.sessionS
 }))
 app.use(fileupload())
 app.set('view engine', 'pug')
