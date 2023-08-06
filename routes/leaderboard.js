@@ -7,7 +7,6 @@ const bcrypt = require("bcryptjs");
 const {User} = require('../models/users');
 const {Fields} = require('../models/fields');
 const { stringify } = require('querystring');
-const fetch = require("node-fetch");
 router = express.Router()
 router.get('/' , async (req,res)=>{
     if(req.session.user){
