@@ -70,7 +70,7 @@ router.post('/edit/:id' , async(req,res)=>{
         res.redirect(`/signin`)
     }
     else if(req.session.user._id != req.params.id){
-        res.redirect(`/profile/preview/${req.params.id}` , {message: "مسموح بالتعديل في بياناتك فقط"})
+        res.redirect(`/profile/preview/${req.params.id}` )
     }
     else{
         let user = await User.findOneAndUpdate({_id:req.params.id}, req.body, {
@@ -90,7 +90,7 @@ router.post('/edit/:id' , async(req,res)=>{
             } else {
             console.log('File not found')
             }           
-
+        
             const file = req.files.photo
             filePath = path.join(__dirname, '../public', 'images', `${file.name}`)
             const filepathTofront = `/images/${file.name}`
@@ -102,8 +102,11 @@ router.post('/edit/:id' , async(req,res)=>{
                 new: true
             })
         }
-        req.session.user = user;
-        res.redirect('/profile')
+        
+            user = await  User.findOne({_id:req.params.id}).populate('field')
+            req.session.user = user;
+            res.redirect('/profile')
+    
     }
 })
 module.exports=router;
