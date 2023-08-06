@@ -10,9 +10,14 @@ const { stringify } = require('querystring');
 router = express.Router()
 router.get('/' , async (req,res)=>{
     if(req.session.user){
-        let users = await fetch(`http://localhost:5000/api-v1/users/leaderboard`);
+        let users = await fetch(window.location.hostname +`/api-v1/users/leaderboard`);
+        if(users){
         users = await users.json()
         res.render('leaderboard' , {user:req.session.user , users:users})
+        }
+        else{
+            res.send(err)
+        }
     }
     else{
         res.redirect('/' , 500)
